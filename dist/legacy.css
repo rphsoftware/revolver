@@ -1,0 +1,128 @@
+#webplayer_widget {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 100px;
+    background-color: #202020;
+    color: white;
+    font-family: sans-serif;
+}
+#webplayer_loading,#webplayer_idle {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#webplayer_loading > p, #webplayer_idle > p {
+    margin: 0;
+    font-size: 24px;
+}
+p.wp_l_head {
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+}
+#webplayer_idle > p.wp_l_state[data-wp="1"],
+#webplayer_idle > p.wp_l_state[data-wp="2"],
+#webplayer_idle > p.wp_l_state[data-wp="3"],
+#webplayer_loading > p.wp_l_state[data-wp="1"],
+#webplayer_loading > p.wp_l_state[data-wp="2"],
+#webplayer_loading > p.wp_l_state[data-wp="3"] { /* css is retarded */
+    font-size: 12px;
+}
+p.wp_l_state[data-wp="1"] { color: gray; }
+p.wp_l_state[data-wp="2"] { color: orange; }
+p.wp_l_state[data-wp="3"] { color: white; }
+
+div.wp_anim {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    height: 2px;
+}
+div.wp_anim>div.wp_anim_center {
+    width: 30%;
+    height: 2px;
+    background-color: aqua;
+    animation: wp_l_anim 3s linear infinite;
+}
+
+@keyframes wp_l_anim {
+    0% {
+        margin-left: 0;
+        width: 30%;
+        background-color: aqua;
+    }
+    49% {
+        background-color: aqua;
+    }
+    50% {
+        background-color: orange;
+        margin-left: 70%;
+        width: 30%;
+    }
+    99% {
+        background-color: orange;
+    }
+    100% {
+        background-color: aqua;
+        margin-left: 0;
+        width: 30%;
+    }
+}
+
+#wp_slider {
+    grid-area: seek;
+}
+#webplayer_pause {
+    font-family: sans-serif;
+    color: white;
+    text-align:center;
+    font-size: 24px;
+}
+#webplayer_controls {
+    display: grid;
+    grid-template-columns: 64px 150px 80px 6px;
+    grid-template-rows: 32px 32px 36px;
+    grid-template-areas:
+        "button status volume space"
+        "button seek seek space"
+        "loop feedback credits space";
+}
+
+#webplayer_loop {
+    grid-area: loop;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#webplayer_credits {
+    grid-area: credits;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#webplayer_pause {
+    grid-area: button;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#webplayer_pause > img {
+    width: 64px;
+    height: 64px;
+}
+#webplayer_status {
+    grid-area: status;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#webplayer_volume {
+    grid-area: volume;
+}
+#webplayer_volume > input {
+    width: 80px;
+}
