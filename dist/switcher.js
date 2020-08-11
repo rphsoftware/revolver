@@ -36,7 +36,7 @@ if (mode === "modern") {
 }
 
 let initialized = false;
-function playBRSTM(id) {
+function playSong(id) {
     if (!initialized) {
         let z = document.createElement("a");
         z.href = "#";
