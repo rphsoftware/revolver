@@ -67,26 +67,12 @@ if (mode === "modern") {
 
 let initialized = false;
 function playSong(id) {
-    if (!initialized && mode === "modern") {
-        let z = document.createElement("a");
-        z.style = "cursor: pointer; z-index: 999999999; position: fixed; font-family: sans-serif; bottom: 100px; right: 0px; background: black; color: white; text-decoration: none; padding: 8px;";
-        z.innerText = `Use ${mode === "modern" ? "old" : "new"} player`;
-
-        z.addEventListener("click", function() {
-            localStorage.setItem("revolver.mode", mode === "modern" ? "legacy" : "modern");
-            window.location.reload();
-        })
-
-        document.body.appendChild(z);
-        initialized = true;
-    }
-
     if (mode === "legacy") {
         if (!initialized)
             jsplayer.useGUI();
 
         initialized = true;
-        jsplayer.start("https://smashcustommusic.net/brstm/" + id + "&noIncrement=1");
+        jsplayer.start("https://smashcustommusic.net/brstm/" + id + "&noIncrement=1&legacy=1");
     }
     if (mode === "modern") {
         player.play("https://smashcustommusic.net/brstm/" + id + "&noIncrement=1");
