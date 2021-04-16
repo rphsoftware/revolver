@@ -72,10 +72,10 @@ function playSong(id) {
             jsplayer.useGUI();
 
         initialized = true;
-        jsplayer.start("https://smashcustommusic.net/brstm/" + id + "&noIncrement=1&legacy=1");
+        jsplayer.start("/brstm/" + id + "&noIncrement=1&legacy=1");
     }
     if (mode === "modern") {
-        player.play("https://smashcustommusic.net/brstm/" + id + "&noIncrement=1");
+        player.play("/brstm/" + id + "&noIncrement=1");
     }
 }
 
